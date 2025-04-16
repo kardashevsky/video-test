@@ -1,0 +1,124 @@
+<linker>
+  <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Avatar.Source.View.Scene.Character.Lu.AnimationController" preserve="all" />
+    <type fullname="Avatar.Source.View.Scene.Character.Lu.CharacterAnimation" preserve="all" />
+    <type fullname="Avatar.Source.View.Scene.Character.Lu.InactivityHandler" preserve="all" />
+    <type fullname="Avatar.Source.View.Scene.Character.Lu.ReturnToGameHandler" preserve="all" />
+    <type fullname="Avatar.Source.View.Scene.Character.Lu.ShakeDetection" preserve="all" />
+    <type fullname="Avatar.Source.View.Scene.PlayerCharacter" preserve="all" />
+    <type fullname="Avatar.Source.View.UI.Camera.CameraController" preserve="all" />
+    <type fullname="BlendShapeLocalStorageManager" preserve="all" />
+    <type fullname="BlendShapePreserver" preserve="all" />
+    <type fullname="Camera.CameraShake" preserve="all" />
+    <type fullname="CharacterRotationController" preserve="all" />
+    <type fullname="RealisticEyeMovements.EyeAndHeadAnimator" preserve="all" />
+    <type fullname="RealisticEyeMovements.LookTargetController" preserve="all" />
+    <type fullname="SliderValuesLocalStorageManager" preserve="all" />
+    <type fullname="UMA2.Character.Men.ForceSkinColorChange" preserve="all" />
+    <type fullname="UMAMetadataManager" preserve="all" />
+    <type fullname="RealisticEyeMovements.ControlData" preserve="nothing" serialized="true" />
+    <type fullname="RealisticEyeMovements.ControlData/BlendshapesConfig" preserve="nothing" serialized="true" />
+    <type fullname="RealisticEyeMovements.ControlData/EyelidPositionBlendshape" preserve="nothing" serialized="true" />
+    <type fullname="RealisticEyeMovements.EyeRotationLimiter" preserve="nothing" serialized="true" />
+    <type fullname="RealisticEyeMovements.EyelidRotationLimiter" preserve="nothing" serialized="true" />
+    <type fullname="RealisticEyeMovements.HeadComponent" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UMA_Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UMA.CharacterSystem.DynamicCharacterAvatar" preserve="all" />
+    <type fullname="UMA.ColorDNAConverterPlugin" preserve="all" />
+    <type fullname="UMA.DynamicDNAConverterController" preserve="all" />
+    <type fullname="UMA.DynamicUMADnaAsset" preserve="all" />
+    <type fullname="UMA.OverlayDataAsset" preserve="all" />
+    <type fullname="UMA.RaceData" preserve="all" />
+    <type fullname="UMA.SlotDataAsset" preserve="all" />
+    <type fullname="UMA.TextureMerge" preserve="all" />
+    <type fullname="UMA.UMAData" preserve="all" />
+    <type fullname="UMA.UMADefaultMeshCombiner" preserve="all" />
+    <type fullname="UMA.UMAGenerator" preserve="all" />
+    <type fullname="UMA.UMAGlobalContext" preserve="all" />
+    <type fullname="UMA.UMAMaterial" preserve="all" />
+    <type fullname="UMA.UMAPostProcess" preserve="all" />
+    <type fullname="UMA.UMATextRecipe" preserve="all" />
+    <type fullname="UMA.UmaTPose" preserve="all" />
+    <type fullname="UMA.BaseCharacterModifier" preserve="nothing" serialized="true" />
+    <type fullname="UMA.CharacterSystem.DynamicCharacterAvatar/ColorValue" preserve="nothing" serialized="true" />
+    <type fullname="UMA.CharacterSystem.DynamicCharacterAvatar/ColorValueList" preserve="nothing" serialized="true" />
+    <type fullname="UMA.CharacterSystem.DynamicCharacterAvatar/RaceAnimatorList" preserve="nothing" serialized="true" />
+    <type fullname="UMA.CharacterSystem.DynamicCharacterAvatar/RaceSetter" preserve="nothing" serialized="true" />
+    <type fullname="UMA.CharacterSystem.DynamicCharacterAvatar/WardrobeRecipeList" preserve="nothing" serialized="true" />
+    <type fullname="UMA.CharacterSystem.DynamicCharacterAvatar/WardrobeRecipeListItem" preserve="nothing" serialized="true" />
+    <type fullname="UMA.ColorDNAConverterPlugin/DNAColorSet" preserve="nothing" serialized="true" />
+    <type fullname="UMA.ColorDNAConverterPlugin/DNAColorSet/DNAColorComponent" preserve="nothing" serialized="true" />
+    <type fullname="UMA.ColorDNAConverterPlugin/DNAColorSet/DNAColorModifier" preserve="nothing" serialized="true" />
+    <type fullname="UMA.DNAConverterField" preserve="nothing" serialized="true" />
+    <type fullname="UMA.DNAConverterList" preserve="nothing" serialized="true" />
+    <type fullname="UMA.DNAEvaluationGraph" preserve="nothing" serialized="true" />
+    <type fullname="UMA.DNAEvaluator" preserve="nothing" serialized="true" />
+    <type fullname="UMA.DNAEvaluatorList" preserve="nothing" serialized="true" />
+    <type fullname="UMA.DynamicDNAPlugin/MasterWeight" preserve="nothing" serialized="true" />
+    <type fullname="UMA.OverlayColorData" preserve="nothing" serialized="true" />
+    <type fullname="UMA.RaceData/CrossCompatibilitySettingsList" preserve="nothing" serialized="true" />
+    <type fullname="UMA.RaceData/RaceThumbnails" preserve="nothing" serialized="true" />
+    <type fullname="UMA.SlotData" preserve="nothing" serialized="true" />
+    <type fullname="UMA.SubMeshTriangles" preserve="nothing" serialized="true" />
+    <type fullname="UMA.TextureMerge/BlendModeShaders" preserve="nothing" serialized="true" />
+    <type fullname="UMA.UMABlendFrame" preserve="nothing" serialized="true" />
+    <type fullname="UMA.UMABlendShape" preserve="nothing" serialized="true" />
+    <type fullname="UMA.UMACharacterEvent" preserve="nothing" serialized="true" />
+    <type fullname="UMA.UMAData/UMARecipe" preserve="nothing" serialized="true" />
+    <type fullname="UMA.UMADataEvent" preserve="nothing" serialized="true" />
+    <type fullname="UMA.UMADataSlotMaterialRectEvent" preserve="nothing" serialized="true" />
+    <type fullname="UMA.UMADataSlotProcessedEvent" preserve="nothing" serialized="true" />
+    <type fullname="UMA.UMADataWardrobeEvent" preserve="nothing" serialized="true" />
+    <type fullname="UMA.UMADnaBase" preserve="nothing" serialized="true" />
+    <type fullname="UMA.UMAMaterial/MaterialChannel" preserve="nothing" serialized="true" />
+    <type fullname="UMA.UMAMaterial/SRPMaterial" preserve="nothing" serialized="true" />
+    <type fullname="UMA.UMAMaterialPropertyBlock" preserve="nothing" serialized="true" />
+    <type fullname="UMA.UMAMeshData" preserve="nothing" serialized="true" />
+    <type fullname="UMA.UMAPredefinedDNA" preserve="nothing" serialized="true" />
+    <type fullname="UMA.UMARecipesEvent" preserve="nothing" serialized="true" />
+    <type fullname="UMA.UMASkeleton" preserve="nothing" serialized="true" />
+    <type fullname="UMA.UMASlotsEvent" preserve="nothing" serialized="true" />
+    <type fullname="UMA.UMATransform" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
+    <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData" preserve="all" />
+    <type fullname="UnityEngine.Rendering.Universal.TemporalAA/Settings" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.AssetBundleProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.BundledAssetProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.InstanceProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.SceneProvider" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.AnimationClip" preserve="all" />
+    <type fullname="UnityEngine.Animator" preserve="all" />
+    <type fullname="UnityEngine.Avatar" preserve="all" />
+    <type fullname="UnityEngine.RuntimeAnimatorController" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Camera" preserve="all" />
+    <type fullname="UnityEngine.GameObject" preserve="all" />
+    <type fullname="UnityEngine.Material" preserve="all" />
+    <type fullname="UnityEngine.MeshFilter" preserve="all" />
+    <type fullname="UnityEngine.MeshRenderer" preserve="all" />
+    <type fullname="UnityEngine.Object" preserve="all" />
+    <type fullname="UnityEngine.Shader" preserve="all" />
+    <type fullname="UnityEngine.SkinnedMeshRenderer" preserve="all" />
+    <type fullname="UnityEngine.Texture2D" preserve="all" />
+    <type fullname="UnityEngine.Transform" preserve="all" />
+    <type fullname="UnityEngine.BoneWeight1" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Events.PersistentCallGroup" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Events.UnityEvent" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.BoxCollider" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.EventSystems.EventTrigger" preserve="all" />
+  </assembly>
+</linker>
