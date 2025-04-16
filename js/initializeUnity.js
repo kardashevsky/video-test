@@ -110,8 +110,6 @@ async function initializeUnityInstance() {
     document.body.style.background = "#000";
 
     if (introVideo && skipButton && introContainer) {
-      introVideo.loop = false;
-
       skipButton.classList.remove('hidden');
 
       const removeIntro = () => {

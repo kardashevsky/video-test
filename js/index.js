@@ -5,9 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const introVideo = document.getElementById('intro-video');
   const unmuteButton = document.getElementById('unmute-button');
 
-  introVideo.play().catch((error) => {
-    console.warn('Не удалось воспроизвести видео автоматически:', error);
-  });
+  introVideo.play();
 
   unmuteButton.addEventListener('click', () => {
     introVideo.muted = false;
