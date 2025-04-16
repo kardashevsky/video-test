@@ -6,6 +6,25 @@ const MAIN_SCENE_BUNDLE_URL = window.config.MAIN_SCENE_BUNDLE_URL;
 const buildUrl = "Build";
 const loaderUrl = buildUrl + "/Build.loader.js";
 
+let audioContext, sourceNode, gainNode;
+
+const setupAudioFade = () => {
+  if (!introVideo) return;
+  audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  sourceNode = audioContext.createMediaElementSource(introVideo);
+  gainNode = audioContext.createGain();
+  gainNode.gain.value = 1;
+  sourceNode.connect(gainNode).connect(audioContext.destination);
+};
+
+const fadeOutAudio = (duration = 2000) => {
+  if (!gainNode || !audioContext) return;
+  const now = audioContext.currentTime;
+  gainNode.gain.cancelScheduledValues(now);
+  gainNode.gain.setValueAtTime(gainNode.gain.value, now);
+  gainNode.gain.linearRampToValueAtTime(0, now + duration / 1000);
+};
+
 const config = {
   dataUrl: buildUrl + "/Build.data",
   frameworkUrl: buildUrl + "/Build.framework.js",
@@ -113,32 +132,21 @@ async function initializeUnityInstance() {
       skipButton.classList.remove('hidden');
 
       const removeIntro = () => {
-        if (introVideo && introContainer) {
-          console.log('[intro] removeIntro — начинаем плавное затухание');
+        if (!introVideo || !introContainer) return;
 
-          let volume = introVideo.volume || 1.0;
-          const fadeStep = 0.05;
-          const fadeIntervalTime = 50;
-          const fadeInterval = setInterval(() => {
-            volume -= fadeStep;
-            if (volume <= 0) {
-              clearInterval(fadeInterval);
-              introVideo.volume = 0;
-              introVideo.pause();
-              console.log('[intro] Видео остановлено после затухания');
-            } else {
-              introVideo.volume = volume;
-            }
-          }, fadeIntervalTime);
+        console.log('[intro] Удаление интро: начинаем затухание');
 
-          introContainer.style.transition = 'opacity 2s ease';
-          introContainer.style.opacity = '0';
+        fadeOutAudio(2000);
 
-          setTimeout(() => {
-            introContainer.remove();
-            console.log('[intro] Интро удалено');
-          }, 2000);
-        }
+        introContainer.style.transition = 'opacity 2s ease';
+        introContainer.style.opacity = '0';
+
+        setTimeout(() => {
+          introVideo.pause();
+          audioContext?.close?.();
+          introContainer.remove();
+          console.log('[intro] Интро удалено');
+        }, 2000);
       };
 
       skipButton.addEventListener('click', removeIntro);
@@ -149,6 +157,9 @@ async function initializeUnityInstance() {
 
 export default async function initializeUnity() {
   try {
+    introVideo.volume = 1;
+    setupAudioFade();
+
     const script = document.createElement("script");
     script.src = loaderUrl;
 
