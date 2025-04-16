@@ -46,6 +46,35 @@ const fitGameScreen = () => {
 
 window.addEventListener('resize', fitGameScreen);
 
+const removeIntro = () => {
+  if (introVideo && introContainer) {
+
+    let volume = introVideo.volume || 1.0;
+    const fadeStep = 0.1;
+    const fadeIntervalTime = 50;
+    const fadeInterval = setInterval(() => {
+      volume -= fadeStep;
+      if (volume <= 0) {
+        clearInterval(fadeInterval);
+        introVideo.volume = 0;
+        introVideo.pause();
+      } else {
+        introVideo.volume = volume;
+      }
+    }, fadeIntervalTime);
+
+    introContainer.style.transition = 'opacity 2s ease';
+    introContainer.style.opacity = '0';
+
+    setTimeout(() => {
+      introContainer.remove();
+    }, 1000);
+  }
+};
+
+skipButton.addEventListener('click', removeIntro);
+introVideo.addEventListener('ended', removeIntro);
+
 async function fetchAndCacheBundle(bundleUrl, currentVersion) {
   console.log(`Fetching and caching bundle: ${bundleUrl}`);
   try {
@@ -101,6 +130,10 @@ async function initializeUnityInstance() {
       fitGameScreen();
     }
   }).then((unityInstance) => {
+    if (introVideo && skipButton && introContainer) {
+      skipButton.classList.remove('hidden');
+    }
+
     window.unityInstance = unityInstance;
     myGameInstance = unityInstance;
     progressBarFill.style.width = '100%';
@@ -108,42 +141,6 @@ async function initializeUnityInstance() {
     canvasOverlay.style.display = "none";
     document.documentElement.style.background = "#000";
     document.body.style.background = "#000";
-
-    if (introVideo && skipButton && introContainer) {
-      skipButton.classList.remove('hidden');
-
-      const removeIntro = () => {
-        if (introVideo && introContainer) {
-          console.log('[intro] removeIntro — начинаем плавное затухание');
-
-          let volume = introVideo.volume || 1.0;
-          const fadeStep = 0.05;
-          const fadeIntervalTime = 50;
-          const fadeInterval = setInterval(() => {
-            volume -= fadeStep;
-            if (volume <= 0) {
-              clearInterval(fadeInterval);
-              introVideo.volume = 0;
-              introVideo.pause();
-              console.log('[intro] Видео остановлено после затухания');
-            } else {
-              introVideo.volume = volume;
-            }
-          }, fadeIntervalTime);
-
-          introContainer.style.transition = 'opacity 2s ease';
-          introContainer.style.opacity = '0';
-
-          setTimeout(() => {
-            introContainer.remove();
-            console.log('[intro] Интро удалено');
-          }, 2000);
-        }
-      };
-
-      skipButton.addEventListener('click', removeIntro);
-      introVideo.addEventListener('ended', removeIntro);
-    }
   });
 }
 
