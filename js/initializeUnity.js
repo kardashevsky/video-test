@@ -114,11 +114,30 @@ async function initializeUnityInstance() {
 
       const removeIntro = () => {
         if (introVideo && introContainer) {
-          introVideo.pause();
-          introContainer.classList.add('fade-out');
+          console.log('[intro] removeIntro — начинаем плавное затухание');
+
+          let volume = introVideo.volume || 1.0;
+          const fadeStep = 0.05;
+          const fadeIntervalTime = 50;
+          const fadeInterval = setInterval(() => {
+            volume -= fadeStep;
+            if (volume <= 0) {
+              clearInterval(fadeInterval);
+              introVideo.volume = 0;
+              introVideo.pause();
+              console.log('[intro] Видео остановлено после затухания');
+            } else {
+              introVideo.volume = volume;
+            }
+          }, fadeIntervalTime);
+
+          introContainer.style.transition = 'opacity 2s ease';
+          introContainer.style.opacity = '0';
+
           setTimeout(() => {
             introContainer.remove();
-          }, 600);
+            console.log('[intro] Интро удалено');
+          }, 2000);
         }
       };
 
