@@ -1,19 +1,6 @@
 import initializeSplashScreen from './initializeSplashScreen.js';
 import initializeUnity from './initializeUnity.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const introVideo = document.getElementById('intro-video');
-  const unmuteButton = document.getElementById('unmute-button');
-
-  introVideo.play();
-
-  unmuteButton.addEventListener('click', () => {
-    introVideo.muted = false;
-    introVideo.volume = 1.0;
-    unmuteButton.classList.add('hidden');
-  });
-});
-
 (async () => {
   const webApp = window.Telegram.WebApp;
   webApp.expand();

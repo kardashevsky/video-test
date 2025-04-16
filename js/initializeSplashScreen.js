@@ -42,6 +42,23 @@ function initializeMobileSplashScreen(commentText, subheading) {
       textCommentElement.classList.add('visible');
       textSubheadingElement.classList.remove('hidden');
       textSubheadingElement.classList.add('visible');
+
+      const introVideo = document.getElementById('intro-video');
+      const unmuteButton = document.getElementById('unmute-button');
+  
+      if (introVideo) {
+        introVideo.play().catch((error) => {
+          console.warn('Автовоспроизведение интро-видео не удалось:', error);
+        });
+  
+        if (unmuteButton) {
+          unmuteButton.addEventListener('click', () => {
+            introVideo.muted = false;
+            introVideo.volume = 1.0;
+            unmuteButton.classList.add('hidden');
+          });
+        }
+      }
     })
     .catch(error => {
       console.error('Ошибка загрузки ресурсов:', error);
