@@ -82,11 +82,9 @@ export async function clearIndexedDB() {
     request.onsuccess = () => console.log('IndexedDB cleared successfully.');
     request.onerror = (err) => {
       console.error('Failed to clear IndexedDB:', err);
-      showWebAppAlert('Failed to clear application cache. Please restart the app.');
     };
   } catch (error) {
     console.error('Error while clearing IndexedDB:', error);
-    showWebAppAlert('An unexpected error occurred while clearing cache.');
   }
 }
 
@@ -96,17 +94,6 @@ export async function fetchBundle(bundleUrl) {
     throw new Error(`Failed to load bundle: ${response.statusText}`);
   }
   return await response.arrayBuffer();
-}
-
-export function showWebAppAlert(message, callback = () => {}) {
-  const webApp = window.Telegram?.WebApp;
-
-  if (!webApp || typeof webApp.showAlert !== 'function') {
-    console.error('Telegram WebApp or showAlert method is not available.');
-    return;
-  }
-
-  webApp.showAlert(message, callback);
 }
 
 export function openDb() {

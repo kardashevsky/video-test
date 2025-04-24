@@ -56,7 +56,6 @@ export const getTranslations = async (languageCode) => {
       if (!enResponse.ok) {
         const error = `Error ${enResponse.status}: ${enResponse.statusText}`;
         console.error(error);
-        showWebAppAlert('Failed to load English translations. Please try again later.');
         throw new Error(error);
       }
 
@@ -77,13 +76,11 @@ export const getTranslations = async (languageCode) => {
       if (!langResponse.ok) {
         const error = `Error ${langResponse.status}: ${langResponse.statusText}`;
         console.error(error);
-        showWebAppAlert('Failed to load translations. Please try again later.');
         throw new Error(error);
       }
       if (!enResponse.ok) {
         const error = `Error ${enResponse.status}: ${enResponse.statusText}`;
         console.error(error);
-        showWebAppAlert('Failed to load English translations. Please try again later.');
         throw new Error(error);
       }
 
@@ -101,15 +98,22 @@ export const getTranslations = async (languageCode) => {
     }
 
     const textSplashScreen = {
-      subheading: jsonLang.data?.screen00_heading ?? 'Error',
-      commentText: jsonLang.data?.screen00_subheading ?? 'Error',
-      warningText: jsonLang.data?.screen00_device ?? 'Error',
+      splash_screen_header: jsonLang.data?.splash_screen_header ?? 'Error',
+      splash_screen_commentary: jsonLang.data?.splash_screen_commentary ?? 'Error',
+      splash_screen_qrcode: jsonLang.data?.splash_screen_qrcode ?? 'Error',
+      splash_screen_1_mvp: jsonLang.data?.splash_screen_1_mvp ?? 'Error',
+      splash_screen_2_getready: jsonLang.data?.splash_screen_2_getready ?? 'Error',
+      splash_screen_3_dating: jsonLang.data?.splash_screen_3_dating ?? 'Error',
+      splash_screen_4_p2p: jsonLang.data?.splash_screen_4_p2p ?? 'Error',
+      splash_screen_5_pvp: jsonLang.data?.splash_screen_5_pvp ?? 'Error',
+      splash_screen_6_ios_android: jsonLang.data?.splash_screen_6_ios_android ?? 'Error',
+      splash_screen_7_nft: jsonLang.data?.splash_screen_7_nft ?? 'Error',
+      splash_screen_button_continue: jsonLang.data?.splash_screen_button_continue ?? 'Error',
     };
 
     return textSplashScreen;
   } catch (error) {
     console.error('Error fetching translations data:', error);
-    showWebAppAlert('An error occurred while loading translations. Please check your connection.');
     throw error;
   }
 };
@@ -126,7 +130,6 @@ export const getLocalizationVersions = async () => {
     if (!response.ok) {
       const error = `Error ${response.status}: ${response.statusText}`;
       console.error(error);
-      showWebAppAlert('Failed to fetch localization versions. Please try again later.');
       throw new Error(error);
     }
 
@@ -139,7 +142,6 @@ export const getLocalizationVersions = async () => {
     return data;
   } catch (error) {
     console.error('Error fetching localization versions:', error);
-    showWebAppAlert('An error occurred while loading localization versions. Please check your connection.');
     throw error;
   }
 };

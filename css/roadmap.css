@@ -1,0 +1,45 @@
+#roadmap {
+  position: absolute;
+  top: 30%;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  
+  align-items: flex-start;
+  z-index: 11;
+}
+
+.roadmap-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 11;
+}
+
+.roadmap-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: 13px;
+  width: 2px;
+  height: 20px;
+  background: #8BFF90;
+  opacity: 0.12;
+  z-index: 5;
+}
+
+.roadmap-item.completed .checkpoint-icon::before {
+  background: #8BFF90;
+  opacity: 0.2;
+}
+
+.roadmap-item.completed .checkpoint-icon::after {
+  inset: 2px;
+  border-radius: 50%;
+  background: url('../../assets/icons/checkmark.svg');
+}

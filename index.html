@@ -4,70 +4,80 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>{{{ PRODUCT_NAME }}}</title>
-    <link rel="preload" href="assets/fonts/Onest-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="preload" href="assets/Onest-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
     <link rel="icon" href="data:,">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
     <script src="js/config.js"></script>
   </head>
   <body>
     <div id="unity-container">
+      <canvas id="unity-canvas" class="unity-canvas"></canvas>
+      <div id="canvas-overlay" class="canvas-overlay">
+        <div class="gradient"></div>
+        <div class="top-gradient"></div>
+        <div class="friends-bottom-gradient"></div>
 
-      <div id="intro-video-container">
-        <video id="intro-video" autoplay playsinline muted>
-          <source src="assets/video/intro-video.mp4" type="video/mp4" />
+        <img
+          src="assets/icons/logo.svg"
+          alt="Genza Logo"
+          class="splash-logo"
+        />
+        <h2 id="splash_screen_header" class="splash_screen_header hidden"></h2>
+        <div class="splash_screen_commentary_container">
+          <span id="splash_screen_commentary" class="splash_screen_commentary hidden"></span>
+        </div>
+
+        <video class="background-video" autoplay muted loop playsinline>
+          <source src="assets/background_video.mp4" type="video/mp4">
         </video>
-        <div id="skip-intro-button" class="hidden">Skip</div>
-        <div id="unmute-button">Unmute</div>
+
+        <div id="roadmap" class="roadmap hidden">
+          <div class="roadmap-item completed">
+            <div class="checkpoint-icon"></div>
+            <span id="splash_screen_1_mvp"></span>
+          </div>
+          <div class="roadmap-item">
+            <div class="checkpoint-icon"></div>
+            <span id="splash_screen_2_getready"></span>
+          </div>
+          <div class="roadmap-item">
+            <div class="checkpoint-icon"></div>
+            <span id="splash_screen_3_dating"></span>
+          </div>
+          <div class="roadmap-item">
+            <div class="checkpoint-icon"></div>
+            <span id="splash_screen_4_p2p"></span>
+          </div>
+          <div class="roadmap-item">
+            <div class="checkpoint-icon"></div>
+            <span id="splash_screen_5_pvp"></span>
+          </div>
+          <div class="roadmap-item">
+            <div class="checkpoint-icon"></div>
+            <span id="splash_screen_6_ios_android"></span>
+          </div>
+          <div class="roadmap-item">
+            <div class="checkpoint-icon"></div>
+            <span id="splash_screen_7_nft"></span>
+          </div>
+        </div>
       </div>
 
-      <canvas id="unity-canvas" class="unity-canvas"></canvas>
+      <div class="progress-bar progress-bar-container">
+        <div id="progress-bar-fill" class="progress-bar-fill"></div>
+      </div>
+      <span id="progress-percentage" class="progress-percentage">0%</span>
+      <span id="splash_screen_button_continue" class="splash_screen_button_continue hidden"></span>
 
-      <div id="canvas-overlay" class="canvas-overlay">
-        <div id="loading-page" class="loading-page hidden">
-          <div class="loading-page__bg"></div>
-          <div class="loading-page__top-gradient"></div>
-          <div class="loading-page__gradient"></div>
-          <div class="loading-page__bottom-gradient"></div>
-          <div class="loading-page__friends-bottom-gradient"></div>
-          <img data-src="assets/logo.svg" class="logo" alt="Logo">
-          <img data-src="assets/background.png" class="background-image" alt="Background">        
-          <span id="text-subheading" class="text-subheading hidden"></span>
-          <span id="product-version" class="product-version"></span>
-
-          <div class="loading-page__content hidden">
-            <img data-src="assets/female_asian.png" class="female-asian" alt="Female Asian">
-            <img data-src="assets/female_blond.png" class="female-blond" alt="Female Blond">
-            <img data-src="assets/male_white.png" class="male-white" alt="Male White">
-            <img data-src="assets/male_with_beard.png" class="male-with-beard" alt="Male with Beard">
-            <img data-src="assets/male.png" class="male" alt="Male">
-            <img data-src="assets/female.png" class="female" alt="Female">
-            <img data-src="assets/cat.png" class="cat" alt="Cat">
-            <img data-src="assets/thumb.png" class="thumb" alt="Thumb">
-            <img data-src="assets/baloons.svg" class="baloons" alt="Baloons">
-            <img data-src="assets/baloon_1.svg" class="baloon-1" alt="Baloon 1">
-            <img data-src="assets/baloon_2.svg" class="baloon-2" alt="Baloon 2">
-          </div>
-
-          <span id="text-comment" class="text-comment hidden"></span>
-
-          <div class="progress-bar loading-page__progress-bar">
-            <div id="progress-bar-fill" class="progress-bar-fill"></div>
-          </div>
-
-          <span id="progress-percentage" class="progress-percentage">0%</span>
-        </div>
-
-        <div id="warning-screen" class="hidden hidden">
-          <h1 class="logo-text">GENZA</h1>
-          <img data-src="assets/qr.png" id="qr-code" class="qr-code">
-          <span class="qr-instruction"></span>
-        </div>
+      <div id="warning-screen" class="hidden">
+        <h1 class="logo-text">GENZA</h1>
+        <img src="assets/icons/qr.png" id="qr-code" class="qr-code">
+        <span class="qr-instruction"></span>
       </div>
 
     </div>
 
-    <script type="module" src="js/index.js"></script>
+    <script type="module" src="index.js"></script>
   </body>
 </html>

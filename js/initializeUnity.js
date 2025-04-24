@@ -18,16 +18,10 @@ const config = {
 
 const container = document.querySelector("#unity-container");
 const canvas = document.querySelector("#unity-canvas");
-const progressBarFill = document.querySelector("#progress-bar-fill");
 const canvasOverlay = document.querySelector("#canvas-overlay");
+const progressBarFill = document.querySelector("#progress-bar-fill");
 const progressPercentage = document.querySelector("#progress-percentage");
 const productVersionElement = document.querySelector("#product-version");
-const introContainer = document.getElementById('intro-video-container');
-if (introContainer) {
-  introContainer.classList.add('visible');
-}
-const introVideo = document.getElementById('intro-video');
-const skipButton = document.getElementById('skip-intro-button');
 
 let myGameInstance = null;
 let scaleToFit;
@@ -45,35 +39,6 @@ const fitGameScreen = () => {
 };
 
 window.addEventListener('resize', fitGameScreen);
-
-const removeIntro = () => {
-  if (introVideo && introContainer) {
-
-    let volume = introVideo.volume || 1.0;
-    const fadeStep = 0.1;
-    const fadeIntervalTime = 50;
-    const fadeInterval = setInterval(() => {
-      volume -= fadeStep;
-      if (volume <= 0) {
-        clearInterval(fadeInterval);
-        introVideo.volume = 0;
-        introVideo.pause();
-      } else {
-        introVideo.volume = volume;
-      }
-    }, fadeIntervalTime);
-
-    introContainer.style.transition = 'opacity 2s ease';
-    introContainer.style.opacity = '0';
-
-    setTimeout(() => {
-      introContainer.remove();
-    }, 1000);
-  }
-};
-
-skipButton.addEventListener('click', removeIntro);
-introVideo.addEventListener('ended', removeIntro);
 
 async function fetchAndCacheBundle(bundleUrl, currentVersion) {
   console.log(`Fetching and caching bundle: ${bundleUrl}`);
@@ -130,17 +95,60 @@ async function initializeUnityInstance() {
       fitGameScreen();
     }
   }).then((unityInstance) => {
-    if (introVideo && skipButton && introContainer) {
-      skipButton.classList.remove('hidden');
-    }
-
     window.unityInstance = unityInstance;
     myGameInstance = unityInstance;
+
     progressBarFill.style.width = '100%';
     progressPercentage.textContent = '100%';
-    canvasOverlay.style.display = "none";
-    document.documentElement.style.background = "#000";
-    document.body.style.background = "#000";
+
+    const progressContainer = document.querySelector('.progress-bar-container');
+    const tapHint = document.getElementById('splash_screen_button_continue');
+
+    setTimeout(() => {
+      progressContainer.style.opacity = '0';
+      progressBarFill.style.opacity = '0';
+      progressPercentage.style.opacity = '0';
+
+      setTimeout(() => {
+        progressContainer.style.display = 'none';
+        progressBarFill.style.display = 'none';
+        progressPercentage.style.display = 'none';
+
+        tapHint.style.transition = 'opacity 0.5s ease-out';
+        tapHint.classList.remove('hidden');
+        tapHint.style.display = 'block';
+
+        setTimeout(() => {
+          tapHint.style.opacity = '1';
+
+          const handleTapToContinue = (e) => {
+            e.preventDefault();
+
+            tapHint.style.transition = 'opacity 0.3s ease-out';
+            tapHint.style.opacity = '0';
+
+            canvasOverlay.style.transition = 'opacity 0.5s ease-out';
+            canvasOverlay.style.opacity = '0';
+
+            setTimeout(() => {
+              tapHint.style.display = 'none';
+              document.documentElement.classList.add('black-background');
+              document.body.classList.add('black-background');
+
+              canvasOverlay.removeEventListener('click', handleTapToContinue);
+              canvasOverlay.removeEventListener('touchstart', handleTapToContinue);
+              canvas.removeEventListener('click', handleTapToContinue);
+              canvas.removeEventListener('touchstart', handleTapToContinue);
+            }, 300);
+          };
+
+          canvasOverlay.addEventListener('click', handleTapToContinue);
+          canvasOverlay.addEventListener('touchstart', handleTapToContinue);
+          canvas.addEventListener('click', handleTapToContinue);
+          canvas.addEventListener('touchstart', handleTapToContinue);
+        }, 50);
+      }, 500);
+    }, 500);
   });
 }
 

@@ -1,0 +1,28 @@
+.checkpoint-icon {
+  position: relative;
+  width: 28px;
+  height: 28px;
+
+  flex: none;
+  align-self: stretch;
+  flex-grow: 0;
+
+  z-index: 11;
+}
+
+.checkpoint-icon::before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: #8BCD8E;
+  opacity: 0.2;
+  border-radius: 50%;
+}
+
+.checkpoint-icon::after {
+  content: "";
+  position: absolute;
+  top: 25%; right: 25%; bottom: 25%; left: 25%;
+  background: #D8B1FF;
+  border-radius: 50%;
+}
