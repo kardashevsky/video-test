@@ -1,3 +1,5 @@
+
+
 import { fit, saveToIndexedDB, getFromIndexedDB, clearIndexedDB, fetchBundle } from './utils.js';
 import { getPlayerData } from './api.js';
 
@@ -39,6 +41,33 @@ const fitGameScreen = () => {
 };
 
 window.addEventListener('resize', fitGameScreen);
+
+function hideSplash() {
+  document.removeEventListener('click',      hideSplash, true);
+  document.removeEventListener('touchstart', hideSplash, true);
+
+  const overlay = document.getElementById('canvas-overlay');
+  const tapHint = document.getElementById('splash_screen_button_continue');
+
+  if (tapHint) {
+    tapHint.style.transition = 'opacity 0.3s ease-out';
+    tapHint.style.opacity    = '0';
+  }
+
+  if (overlay) {
+    overlay.style.transition = 'opacity 0.5s ease-out';
+    overlay.style.opacity    = '0';
+  }
+
+  setTimeout(() => {
+
+    if (overlay) overlay.remove();
+    if (tapHint) tapHint.remove();
+
+    document.documentElement.classList.add('black-background');
+    document.body.classList.add('black-background');
+  }, 500);
+}
 
 async function fetchAndCacheBundle(bundleUrl, currentVersion) {
   console.log(`Fetching and caching bundle: ${bundleUrl}`);
@@ -121,37 +150,8 @@ async function initializeUnityInstance() {
         setTimeout(() => {
           tapHint.style.opacity = '1';
 
-          const handleTapToContinue = (e) => {
-            e.preventDefault();
-
-            tapHint.style.transition = 'opacity 0.3s ease-out';
-            tapHint.style.opacity = '0';
-
-            canvasOverlay.style.transition = 'opacity 0.5s ease-out';
-            canvasOverlay.style.opacity = '0';
-
-            canvasOverlay.style.pointerEvents = 'none';
-
-            setTimeout(() => {
-              canvasOverlay.style.display = 'none';
-
-              // Вариант 2: удаляем узел полностью
-              // canvasOverlay.parentNode.removeChild(canvasOverlay);
-
-              document.documentElement.classList.add('black-background');
-              document.body.classList.add('black-background');
-
-              canvasOverlay.removeEventListener('click', handleTapToContinue);
-              canvasOverlay.removeEventListener('touchstart', handleTapToContinue);
-              canvas.removeEventListener('click', handleTapToContinue);
-              canvas.removeEventListener('touchstart', handleTapToContinue);
-            }, 500);
-          };
-
-          canvasOverlay.addEventListener('click', handleTapToContinue);
-          canvasOverlay.addEventListener('touchstart', handleTapToContinue);
-          canvas.addEventListener('click', handleTapToContinue);
-          canvas.addEventListener('touchstart', handleTapToContinue);
+          document.addEventListener('click', hideSplash, { once: true, capture: true });
+          document.addEventListener('touchstart', hideSplash, { once: true, capture: true });
         }, 50);
       }, 500);
     }, 500);
