@@ -130,8 +130,14 @@ async function initializeUnityInstance() {
             canvasOverlay.style.transition = 'opacity 0.5s ease-out';
             canvasOverlay.style.opacity = '0';
 
+            canvasOverlay.style.pointerEvents = 'none';
+
             setTimeout(() => {
-              tapHint.style.display = 'none';
+              canvasOverlay.style.display = 'none';
+
+              // Вариант 2: удаляем узел полностью
+              // canvasOverlay.parentNode.removeChild(canvasOverlay);
+
               document.documentElement.classList.add('black-background');
               document.body.classList.add('black-background');
 
@@ -139,7 +145,7 @@ async function initializeUnityInstance() {
               canvasOverlay.removeEventListener('touchstart', handleTapToContinue);
               canvas.removeEventListener('click', handleTapToContinue);
               canvas.removeEventListener('touchstart', handleTapToContinue);
-            }, 300);
+            }, 500);
           };
 
           canvasOverlay.addEventListener('click', handleTapToContinue);
