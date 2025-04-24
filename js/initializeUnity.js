@@ -1,5 +1,3 @@
-
-
 import { fit, saveToIndexedDB, getFromIndexedDB, clearIndexedDB, fetchBundle } from './utils.js';
 import { getPlayerData } from './api.js';
 
@@ -20,7 +18,6 @@ const config = {
 
 const container = document.querySelector("#unity-container");
 const canvas = document.querySelector("#unity-canvas");
-const canvasOverlay = document.querySelector("#canvas-overlay");
 const progressBarFill = document.querySelector("#progress-bar-fill");
 const progressPercentage = document.querySelector("#progress-percentage");
 const productVersionElement = document.querySelector("#product-version");
