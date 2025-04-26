@@ -74,8 +74,8 @@ function initializeNonMobileSplashScreen(splash_screen_qrcode) {
   const warningScreen = document.getElementById('warning-screen');
   const qrInstruction = document.querySelector('.qr-instruction');
 
-  qrCode.setAttribute('src', qrCode.getAttribute('data-src'));
-  qrCode.removeAttribute('data-src');
+  const src = qrCode.getAttribute('data-src');
+  qrCode.setAttribute('src', src);
 
   const showWarningScreen = () => {
     warningScreen.classList.remove('hidden');
@@ -84,6 +84,8 @@ function initializeNonMobileSplashScreen(splash_screen_qrcode) {
 
   qrCode.onload = showWarningScreen;
   qrCode.onerror = showWarningScreen;
+
+  if (qrCode.complete) showWarningScreen();
 }
 
 async function checkVersionAndGetTranslations(languageCode) {

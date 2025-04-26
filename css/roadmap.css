@@ -41,5 +41,5 @@
 .roadmap-item.completed .checkpoint-icon::after {
   inset: 2px;
   border-radius: 50%;
-  background: url('../assets/icons/checkmark.svg');
+  background: url('../assets/checkmark.svg');
 }

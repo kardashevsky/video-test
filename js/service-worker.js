@@ -6,7 +6,7 @@ const ASSETS_TO_CACHE = [
   '/index.html',
   '/index.css',
   '/assets/background_video.mp4',
-  '/assets/icons/logo.svg',
+  '/assets/logo.svg',
   // сюда можно добавить другие ваши статические ресурсы
 ];
 

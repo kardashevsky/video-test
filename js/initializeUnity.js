@@ -135,6 +135,13 @@ async function initializeUnityInstance() {
       progressBarFill.style.opacity = '0';
       progressPercentage.style.opacity = '0';
 
+      const commentaryContainer = document.querySelector('.splash_screen_commentary_container');
+      if (commentaryContainer) {
+        commentaryContainer.style.transition = 'opacity 0.5s ease-out';
+        commentaryContainer.style.opacity = '0';
+        setTimeout(() => commentaryContainer.remove(), 0);
+      }
+
       setTimeout(() => {
         progressContainer.style.display = 'none';
         progressBarFill.style.display = 'none';
@@ -149,7 +156,7 @@ async function initializeUnityInstance() {
 
           document.addEventListener('click', hideSplash, { once: true, capture: true });
           document.addEventListener('touchstart', hideSplash, { once: true, capture: true });
-        }, 50);
+        }, 0);
       }, 500);
     }, 500);
   });
