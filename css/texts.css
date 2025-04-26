@@ -287,8 +287,8 @@
   
   .splash_screen_commentary {
     position: absolute;
-    width: 281px;
-    height: 45px;
+    width: 350px;
+    height: 55px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -297,7 +297,7 @@
     font-family: 'Onest';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 15px;
     color: #ADFFAF;
     pointer-events: none;
