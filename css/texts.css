@@ -167,3 +167,163 @@
 .black-background {
   background: #000 !important;
 }
+
+@media screen and (min-width: 430px) {
+  .splash-logo {
+    position: absolute;
+    width: 100%;
+    height: 210px;
+    top: 2.5%;
+    z-index: 10;
+    pointer-events: none;
+    transform: scale(1.1);
+    transform-origin: center top;
+  }
+  
+  .splash_screen_header {
+    position: absolute;
+    top: 18%;
+  
+    width: 100%;
+    height: 15px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  
+    font-family: 'Onest', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+  
+    line-height: 15px;
+    letter-spacing: 0.25em;
+    color: #ADFFAF;
+  
+    pointer-events: none;
+    z-index: 10;
+  }
+  
+  #splash_screen_1_mvp {
+    font-family: 'Onest';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #8BFF90;
+    white-space: nowrap;
+    z-index: 11;
+  }
+  
+  #splash_screen_2_getready {
+    font-family: 'Onest';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #E4FFF0;
+    white-space: nowrap;
+    z-index: 11;
+  }
+  
+  #splash_screen_3_dating {
+    font-family: 'Onest';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #E4FFF0;
+    white-space: nowrap;
+    z-index: 11;
+  }
+  
+  #splash_screen_4_p2p {
+    font-family: 'Onest';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #E4FFF0;
+    white-space: nowrap;
+    z-index: 11;
+  }
+  
+  #splash_screen_5_pvp {
+    font-family: 'Onest';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #E4FFF0;
+    white-space: nowrap;
+    z-index: 11;
+  }
+  
+  #splash_screen_6_ios_android {
+    font-family: 'Onest';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #E4FFF0;
+    white-space: nowrap;
+    z-index: 11;
+  }
+  
+  #splash_screen_7_nft {
+    font-family: 'Onest';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #E4FFF0;
+    white-space: nowrap;
+    z-index: 11;
+  }
+  
+  .splash_screen_commentary_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 45px;
+  }
+  
+  .splash_screen_commentary {
+    position: absolute;
+    width: 281px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    bottom: 14%;
+    font-family: 'Onest';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #ADFFAF;
+    pointer-events: none;
+    z-index: 8;
+    white-space: pre-line;
+    opacity: 1;
+  }
+  
+  .splash_screen_button_continue {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    bottom: 11%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #E4FFF0;
+    font-family: 'Onest';
+    font-size: 18px;
+    font-weight: 500;
+    z-index: 9;
+    animation: fadeInOut 1.5s infinite;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    display: none;
+  }
+}
